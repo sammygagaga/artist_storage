@@ -22,3 +22,12 @@ function responseDestroy():JsonResponse
         'status' => 'delete',
     ],200);
 }
+function responseFailed(string $message, int $code = 400):JsonResponse
+{
+    return response()->json([
+        'status' => 'failed',
+        'message' => $message,
+
+    ],$code);
+}
+
