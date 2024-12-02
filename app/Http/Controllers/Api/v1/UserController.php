@@ -14,7 +14,7 @@ class UserController extends Controller
     public function show(User $user)
     {
 
-        $aboba = 2;
+
 
         return new MinifiedUserResource($user);
     }
