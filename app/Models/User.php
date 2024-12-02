@@ -37,8 +37,4 @@ class User extends Authenticatable
         return $this->hasMany(Artist::class);
     }
 
-    public function purchases(): HasMany
-    {
-        return $this->hasMany(Purchase::class);
-    }
 }

@@ -17,7 +17,7 @@ class PurchaseFactory extends Factory
     public function definition(): array
     {
         return [
-            'price'=>$this->faker->numberBetween('0','199'),
+            'purchase'=>$this->faker->numberBetween('0','199'),
             'description'=>$this->faker->text(50),
         ];
     }

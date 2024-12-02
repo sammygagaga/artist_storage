@@ -25,9 +25,7 @@ class ArtistSeeder extends Seeder
             ->has(
                 Artist::factory()->count(3)
                 ->has(
-                    Purchase::factory(rand(1, 3))->for(User::factory()),
-                    'purchases'
-                )
+                    Purchase::factory(rand(1, 3)))
             )->create([
                 'is_admin'=>true
             ]);

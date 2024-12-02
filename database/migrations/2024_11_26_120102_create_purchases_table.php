@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('purchases', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable()->constrained('users')->cascadeOnDelete();
             $table->foreignId('artist_id')->nullable()->constrained('artists')->cascadeOnDelete();
-            $table->integer('price')->nullable();
+            $table->json('purchase')->nullable();
             $table->tinyText('description')->nullable();
             $table->timestamps();
         });

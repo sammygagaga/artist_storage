@@ -12,17 +12,17 @@ class Purchase extends Model
     use HasFactory;
 
     protected $fillable=[
-      'price','description'
+      'purchase','description'
     ];
 
-    public function user():BelongsTo
-    {
-        return $this->belongsTo(User::class);
-    }
+    protected $casts =
+        [
+            'purchase' => 'array'
+        ];
+
     public function artists():BelongsToMany
     {
         return $this->belongsToMany(Artist::class);
     }
-
 
 }
