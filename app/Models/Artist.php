@@ -13,7 +13,7 @@ class Artist extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nickname', 'email','purchased','rating','genre'
+        'nickname','email','purchase_count','rating','genre'
     ];
 
     protected $casts = [

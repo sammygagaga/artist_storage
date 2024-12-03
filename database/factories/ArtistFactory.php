@@ -16,7 +16,7 @@ class ArtistFactory extends Factory
         return [
            'nickname'=> $this->faker->name(),
            'email' =>$this->faker->email(),
-           'purchased'=>$this->faker->numberBetween(0,50),
+           'purchase_count'=>$this->faker->numberBetween(0,5),
            'rating'=>$this->faker->numberBetween(1,5),
            'genre'=>$this->faker->randomElement([ArtistsGenres::Detroit,ArtistsGenres::Milwaukee])
         ];

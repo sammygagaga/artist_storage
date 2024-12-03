@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->nullable()->constrained('users')->cascadeOnDelete();
             $table->string('nickname')->nullable();
             $table->string('email')->unique();
-            $table->integer('purchased')->nullable();
+            $table->integer('purchase_count')->default(0);
             $table->integer('rating')->nullable();
             $table->string('genre')->nullable();
             $table->timestamps();
@@ -28,6 +28,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::dropIfExists('purchases');
         Schema::dropIfExists('artists');
     }
 };

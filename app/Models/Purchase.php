@@ -12,13 +12,10 @@ class Purchase extends Model
     use HasFactory;
 
     protected $fillable=[
-      'purchase','description'
+      'amount','description', 'quantity'
     ];
 
-    protected $casts =
-        [
-            'purchase' => 'array'
-        ];
+
 
     public function artists():BelongsToMany
     {

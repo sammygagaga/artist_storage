@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('purchases', function (Blueprint $table) {
             $table->id();
             $table->foreignId('artist_id')->nullable()->constrained('artists')->cascadeOnDelete();
-            $table->json('purchase')->nullable();
             $table->tinyText('description')->nullable();
+            $table->integer('amount')->nullable();
+            $table->integer('quantity')->nullable();
             $table->timestamps();
         });
     }
@@ -26,5 +27,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('purchases');
+
     }
 };

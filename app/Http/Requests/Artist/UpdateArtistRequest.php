@@ -15,7 +15,7 @@ class UpdateArtistRequest extends ApiRequest
         return [
             'nickname'=> ['nullable','string', 'max:50'],
             'email'=>['nullable','string', 'email', 'max:50'],
-            'purchased'=>['nullable','integer', 'min:0'],
+            'purchase_count'=>['nullable','integer', 'min:0'],
             'rating'=>['nullable','numeric', 'min:0', 'max:5'],
             'genre'=>['required', new Enum(ArtistsGenres::class)]
         ];
