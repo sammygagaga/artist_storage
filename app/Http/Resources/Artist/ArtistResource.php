@@ -27,7 +27,7 @@ class ArtistResource extends JsonResource
             'purchased'=>$this->purchases->map(fn(Purchase $purchase)=>
             [
                 'id'=> $purchase->id,
-                'price'=>$purchase->price,
+                'amount'=>$purchase->amount,
                 'description'=>$purchase->description
             ]),
         ];
