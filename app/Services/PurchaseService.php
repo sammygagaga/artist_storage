@@ -15,7 +15,8 @@ class PurchaseService
         foreach ($purchases as $purchaseData) {
             $this->artist->purchases()->create([
                 'description' => $purchaseData['description'],
-                'purchase' => $purchaseData['purchase'],
+                'amount' => $purchaseData['amount'],
+                'quantity' => $purchaseData['quantity'],
             ]);
         }
         return $this;
