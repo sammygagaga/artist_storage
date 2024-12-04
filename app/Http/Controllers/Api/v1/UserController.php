@@ -22,4 +22,11 @@ class UserController extends Controller
 
         return responseCreated();
     }
+
+    public function destroy(User $user)
+    {
+        $user->delete();
+
+        return responseDestroy();
+    }
 }
