@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Http\Resources\Artist\ArtistResource;
 use App\Services\ArtistService;
 use App\Services\PurchaseService;
+use App\Services\UserService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -16,6 +17,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind('artist', ArtistService::class);
         $this->app->bind('purchase', PurchaseService::class);
+        $this->app->bind('user', UserService::class);
     }
 
     /**

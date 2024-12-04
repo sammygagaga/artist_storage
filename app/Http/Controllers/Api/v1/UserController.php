@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\User\UserRequest;
+use App\Http\Requests\User\CreateUserRequest;
+use App\Http\Requests\User\UpdateUserRequest;
+use App\Http\Resources\User\MinifiedPublishedUserResource;
 use App\Http\Resources\User\MinifiedUserResource;
 use App\Models\User;
+use App\Facades\User as UserFacade;
 use App\Services\UserService;
 
 
@@ -16,9 +19,9 @@ class UserController extends Controller
         return new MinifiedUserResource($user);
     }
 
-    public function store(UserRequest $request, UserService $service, User $user)
+    public function store(CreateUserRequest $request,User $user)
     {
-        $service->setUser($user)->store($request->validated());
+        UserFacade::setUser($user)->store($request->validated());
 
         return responseCreated();
     }
@@ -28,5 +31,12 @@ class UserController extends Controller
         $user->delete();
 
         return responseDestroy();
+    }
+
+    public function update(UpdateUserRequest $request,User $user)
+    {
+        UserFacade::setUser($user)->update($request);
+
+        return new MinifiedPublishedUserResource($user);
     }
 }

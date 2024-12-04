@@ -20,8 +20,8 @@ class ArtistService
         if($request->has('email')){
             $data['email']=$request->input('email');
         }
-        if($request->has('purchased')){
-            $data['purchased']=$request->input('purchased');
+        if($request->has('purchase_count')){
+            $data['purchased']=$request->input('purchase_count');
         }
         if($request->has('rating')){
             $data['rating']=$request->input('rating');

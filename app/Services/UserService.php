@@ -2,7 +2,8 @@
 
 namespace App\Services;
 
-use App\Http\Requests\User\UserRequest;
+use App\Http\Requests\User\CreateUserRequest;
+use App\Http\Requests\User\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Arr;
@@ -22,6 +23,20 @@ class UserService
             'password'=>Hash::make(Arr::get($data, 'password.value')),
         ]);
 
+    }
+
+    public function update(UpdateUserRequest $request): User
+    {
+        $data = [];
+        if($request->has('name')){
+            $data['name']=$request->input('name') ;
+        }
+        if($request->has('email')){
+            $data['email']=$request->input('email') ;
+        }
+        $this->user->update($data);
+
+        return $this->user;
     }
 
     public function setUser(User $user): UserService
