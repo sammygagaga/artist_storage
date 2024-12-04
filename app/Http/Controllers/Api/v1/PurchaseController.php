@@ -27,6 +27,14 @@ class PurchaseController extends Controller
 
     public function list(Purchase $purchase)
     {
-     return new MinifiedPurchaseResource($purchase);
+        return new MinifiedPurchaseResource($purchase);
     }
+
+    public function destroy(Purchase $purchase)
+    {
+        $purchase->delete();
+
+        return responseDestroy();
+    }
+
 }
