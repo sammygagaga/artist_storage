@@ -17,7 +17,7 @@ class ArtistController extends Controller
     {
         $this->middleware('auth:sanctum')->only('store', 'update', 'destroy');
 
-//        $this->middleware('admin')->only('store', 'update', 'destroy');
+
     }
 
     public function index()

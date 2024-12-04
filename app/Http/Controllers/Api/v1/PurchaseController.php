@@ -12,6 +12,11 @@ use Illuminate\Http\Request;
 
 class PurchaseController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:sanctum')->only('add');
+    }
+
     public function add(PurchaseRequest $request)
     {
         PurchaseFacade::setArtist($request->input('artistId'))

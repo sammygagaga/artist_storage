@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Purchase;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\ApiRequest;
 
-class PurchaseRequest extends FormRequest
+
+class PurchaseRequest extends ApiRequest
 {
 
     public function rules(): array
