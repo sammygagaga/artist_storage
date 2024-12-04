@@ -14,6 +14,13 @@ use App\Services\UserService;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:sanctum')->only('update', 'destroy');
+
+        $this->middleware('user.accessor')->only('update', 'destroy');
+    }
+
     public function show(User $user)
     {
         return new MinifiedUserResource($user);
