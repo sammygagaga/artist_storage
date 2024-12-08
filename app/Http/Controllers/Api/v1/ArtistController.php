@@ -9,6 +9,7 @@ use App\Http\Resources\Artist\ArtistResource;
 use App\Http\Resources\Artist\MinifiedArtistResource;
 use App\Models\Artist;
 use App\Facades\Artist as ArtistFacade;
+use App\Services\DTO\CreateArtistData;
 use Illuminate\Http\Request;
 
 class ArtistController extends Controller
@@ -31,7 +32,12 @@ class ArtistController extends Controller
 
     public function store(StoreRequest $request,Artist $artist)
     {
-        $artist = auth()->user()->artists()->create($request->validated());
+
+
+     $artist = auth()->user()->artists()->create($request
+          ->data()
+          ->only('nickname', 'email', 'purchase_count', 'rating', 'genre')
+          ->toArray()) ;
 
         return responseCreated();
     }

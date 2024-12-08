@@ -2,7 +2,8 @@
 
 namespace App\Http;
 
-use App\Http\Middleware\ArtistAccessorMiddleware;
+
+
 use App\Http\Middleware\IsAdminMiddleware;
 use App\Http\Middleware\UserAccessorMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;

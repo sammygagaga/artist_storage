@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+
 
 class Purchase extends Model
 {
@@ -17,9 +17,9 @@ class Purchase extends Model
 
 
 
-    public function artists():BelongsToMany
+    public function artists():BelongsTo
     {
-        return $this->belongsToMany(Artist::class);
+        return $this->belongsTo(Artist::class);
     }
 
 }
